@@ -1,0 +1,1 @@
+nohup ./prometheus-3.5.0.linux-amd64/prometheus --config.file=./prometheus-3.5.0.linux-amd64/prometheus.yml > nohup.out 2>&1 &
