@@ -15,7 +15,7 @@
 > 说明如何运行和使用你的项目，建议给出具体的步骤说明
 * 操作一
 * 操作二
-* 操作三  
+* 操作三  直接安装apt install prometheus-node-exporter
 
 
 

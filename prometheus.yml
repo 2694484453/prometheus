@@ -1,0 +1,73 @@
+# my global config
+global:
+  scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+            - 127.0.0.1:9093
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+   - /home/prometheus/rules/*.rules
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: "prometheus"
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+    static_configs:
+      - targets: [ "localhost:9090" ]
+  - job_name: 'consul-exporter'
+    consul_sd_configs:
+      - server: server.gpg123.vip:8500
+        tags:
+          - rule
+          - node01
+        refresh_interval: 2m
+  - job_name: 'spring-boot-demo'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: [ 'server.gpg123.vip:8090' ]
+        labels: {
+          job: "spring-boot-demo",
+          instance: "spring-boot-demo"
+        }
+    #spring-boot类型
+  - job_name: 'spring-boot-files'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    file_sd_configs:
+      - refresh_interval: 5s
+        files:
+          - /home/prometheus/config/spring-boot/*.json
+  #node-exporter类型
+  - job_name: 'node-exporter-files'
+    metrics_path: '/metrics'
+    scrape_interval: 5s
+    file_sd_configs:
+      - refresh_interval: 5s
+        files:
+          - /home/prometheus/config/node-exporter/*.json
+  #nginx-exporter类型
+  - job_name: 'nginx-exporter-files'
+    metrics_path: '/metrics'
+    scrape_interval: 5s
+    file_sd_configs:
+      - refresh_interval: 5s
+        files:
+          - /home/prometheus/config/nginx-exporter/*.json
+  #caddy类型
+  - job_name: 'caddy-files'
+    metrics_path: '/mertrics'
+    scrape_interval: 5s
+    file_sd_configs:
+      - refresh_interval: 5s
+        files:
+          - /home/prometheus/config/caddy/*.json
