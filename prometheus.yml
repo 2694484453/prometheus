@@ -65,4 +65,4 @@ scrape_configs:
     file_sd_configs:
       - refresh_interval: 5s
         files:
-          - /home/prometheus/config/caddy/*.json
+          - /config/caddy/*.json
