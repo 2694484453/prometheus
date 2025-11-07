@@ -14,7 +14,7 @@ alerting:
 rule_files:
   # - "first_rules.yml"
   # - "second_rules.yml"
-   - /home/prometheus/rules/*.rules
+   - ./rules/*.rules
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
 scrape_configs:
@@ -48,13 +48,13 @@ scrape_configs:
         files:
           - /home/prometheus/config/spring-boot/*.json
   #node-exporter类型
-  - job_name: 'node-exporter-files'
+  - job_name: 'node-exporter'
     metrics_path: '/metrics'
     scrape_interval: 5s
     file_sd_configs:
       - refresh_interval: 5s
         files:
-          - /home/prometheus/config/node-exporter/*.json
+          - node-exporter/*.json
   #nginx-exporter类型
   - job_name: 'nginx-exporter-files'
     metrics_path: '/metrics'
