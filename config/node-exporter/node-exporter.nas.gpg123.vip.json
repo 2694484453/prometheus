@@ -1,0 +1,10 @@
+[
+  {
+    "labels": {
+      "job": "node-exporter.nas.gpg123.vip"
+    },
+    "targets": [
+      "node-exporter.nas.gpg123.vip"
+    ]
+  }
+]
