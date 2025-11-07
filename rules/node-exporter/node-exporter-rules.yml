@@ -1,0 +1,33 @@
+groups:
+  - name: node-exporter-rules
+    rules:
+      - alert: NodeNetworkReceiveTrafficHigh
+        # 排除虚拟设备，计算所有物理网卡的总接收流量
+        expr: sum by (instance) (rate(node_network_receive_bytes_total{device!~"veth.*|br.*|docker.*|lo"}[5m])) > 100 * 1024 * 1024  # 100 MB/s
+        for: 3m
+        labels:
+          severity: warning
+      - alert: NodeDiskWillFullIn24H
+        # 基于最近1小时的磁盘空间变化线性预测24小时后的情况
+        expr: predict_linear(node_filesystem_avail_bytes[1h], 24 * 3600) < 0
+        for: 2m
+        labels:
+          severity: warning
+      - alert: NodeDiskUsageHigh
+        # 过滤掉tmpfs等伪文件系统，并检查文件系统非只读
+        expr: (1 - (node_filesystem_avail_bytes{fstype!~"tmpfs|fuse.lxcfs",mountpoint!="/boot"} / node_filesystem_size_bytes)) * 100 > 85
+        for: 10m
+        labels:
+          severity: warning
+      - alert: NodeMemoryUsageHigh
+        # 使用 MemAvailable 计算更准确，它包含了缓冲区和缓存的可回收内存
+        expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100 > 90
+        for: 5m
+        labels:
+          severity: critical
+      - alert: NodeMemoryUsageHigh
+        # 使用 MemAvailable 计算更准确，它包含了缓冲区和缓存的可回收内存
+        expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100 > 90
+        for: 5m
+        labels:
+          severity: critical
