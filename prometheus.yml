@@ -14,7 +14,7 @@ alerting:
 rule_files:
   # - "first_rules.yml"
   # - "second_rules.yml"
-   - "rules/amd-smi-exporter/amd-smi-custom-rules.yml"
+   - "rules/amd-smi-exporter/*.yml"
   # - "rules/**/*.yml"
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
