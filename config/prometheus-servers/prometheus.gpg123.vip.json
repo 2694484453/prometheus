@@ -5,7 +5,7 @@
       "instance": "prometheus.gpg123.vip"
     },
     "targets": [
-      "https://prometheus.gpg123.vip"
+      "prometheus.gpg123.vip"
     ]
   }
 ]
