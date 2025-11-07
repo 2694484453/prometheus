@@ -1,7 +1,7 @@
 version: '3'
 services:
   mysqld_exporter:
-    image: mysqld-exporter
+    image: prom/mysqld-exporter
     container_name: mysqld-exporter
     restart: always
     environment:
