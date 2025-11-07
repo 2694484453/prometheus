@@ -1,0 +1,10 @@
+version: "3"
+services:
+  alertmanager:
+    image: prom/alertmanager:latest
+    container_name: alertmanager
+    restart: unless-stopped
+    ports:
+      - "9093:9093"
+    volumes:
+      - ./alertmanager.yaml:/etc/alertmanager/conf/config.yaml

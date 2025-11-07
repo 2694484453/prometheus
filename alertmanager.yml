@@ -1,12 +1,28 @@
-version: "3"
-services:
-  alertmanager:
-    image: bitnami/alertmanager:latest
-    container_name: alertmanager
-    restart: always
-    ports:
-      - 9093:9093
-    volumes:
-      - /home/alertmanager/config.yaml:/opt/bitnami/alertmanager/conf/config.yaml
-
-e
+global:
+  resolve_timeout: 5m
+  smtp_smarthost: smtp.qcloudmail.com:465
+  smtp_from: email@gpg123.vip
+  smtp_auth_username: email@gpg123.vip
+  #smtp_auth_identity: email@gpg123.vip
+  smtp_auth_password: Gaopuguang@2023%D
+  smtp_require_tls: false	
+route:
+  group_by: ['alertname']
+  group_wait: 10s
+  group_interval: 1m
+  repeat_interval: 10s
+  receiver: 'email'
+receivers:
+  - name: 'webhook'
+    webhook_configs:
+      - url: 'https://webhook.site/96ba317c-1469-482d-9eed-576e6e5ed3ad'
+  - name: 'email'
+    email_configs:
+      - to: 2694484453@qq.com
+        send_resolved: true 
+#inhibit_rules:
+#  - source_match:
+ #     severity: 'critical'
+ #   target_match:
+  #    severity: 'warning'
+  #  equal: ['alertname', 'dev', 'instance']
