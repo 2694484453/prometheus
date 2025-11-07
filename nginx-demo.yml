@@ -1,0 +1,19 @@
+version: "3"
+services:
+  hello-demo:
+    image: nginxdemos/hello:latest
+    container_name: hello-demo
+    ports:
+      - "8080:8080"
+      - "8888:80"
+    volumes:
+      - ./status.conf:/etc/nginx/conf.d/status.conf
+  nginx-exporter:
+    image: nginx/nginx-prometheus-exporter:latest
+    container_name: nginx-demo
+    command:
+      - "--nginx.scrape-uri=http://192.168.48.87:8080/stub_status"
+      - "--nginx.scrape-uri=http://192.168.48.87:8888/stub_status"
+    ports:
+      - "9113:9113"
+

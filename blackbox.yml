@@ -1,0 +1,11 @@
+version: "3"
+services:
+  blackbox:
+    image: prom/blackbox-exporter
+    container_name: blackbox
+    cap_add:
+      -
+    cap_drop:
+      -
+    ports:
+      - "9115:9115"

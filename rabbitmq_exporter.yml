@@ -1,0 +1,17 @@
+version: "3"
+services:
+  rabbitmq-exporter:
+    image: kbudde/rabbitmq-exporter:latest
+    container_name: rabbitmq-exporter
+    restart: always
+    network_mode: bridge
+    ports:
+      - "9419:9419"
+    environment:
+      - RABBIT_USER=guest
+      - RABBIT_PASSWORD=guest
+      - RABBIT_URL=http://server.gpg123.vip:15672
+      - OUTPUT_FORMAT=json
+      - PUBLIC_PORT=9419
+      - SERVICE_TAGS="prometheus-target,rabbitmq-expo"
+

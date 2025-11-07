@@ -1,0 +1,12 @@
+version: '3'
+services:
+  mysqld_exporter:
+    image: mysqld-exporter
+    container_name: mysqld-exporter
+    restart: always
+    environment:
+      - DATA_SOURCE_NAME="root:Gaopuguang@2024%@tcp(mysql.gpg123.vip:3306)/"
+      - WEB_LISTEN_ADDRESS=":9104"
+    ports:
+      - "9104:9104"
+

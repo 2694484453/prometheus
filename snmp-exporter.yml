@@ -1,0 +1,8 @@
+version: "3"
+services:
+  snmp-exporter:
+    image: prom/snmp-exporter
+    ports:
+      - "9116:9116"
+    environment:
+      - SNMP_EXPORTER_TARGETS=192.168.49.1,192.168.16.1,172.25.0.1,192.168.64.1,172.27.0.1

@@ -1,0 +1,12 @@
+version: "3"
+services:
+  elasticsearch-exporter:
+    image: bitnami/elasticsearch-exporter
+    container_name: elasticsearch-exporter
+    network_mode: host
+    ports:
+      - "9108:9108" # 将主机的9108端口映射到容器的9108端口
+    environment:
+      - ELASTICSEARCH_URL=http://110.42.40.8:9200 # 指定Elasticsearch实例的地址
+      - ELASTICSEARCH_USERNAME=elastic # 如果需要认证，指定用户名
+      - ELASTICSEARCH_PASSWORD=elastic  # 如果需要认证，指定密码

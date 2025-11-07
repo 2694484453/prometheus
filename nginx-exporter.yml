@@ -1,0 +1,10 @@
+version: "3"
+services:
+  nginx-prometheus-exporter:
+    image: nginx/nginx-prometheus-exporter:latest
+    container_name: nginx-prometheus-exporter
+    ports:
+      - "9113:9113"
+    command:
+      - "--nginx.scrape-uri=http://localhost:8080/stub_status"
+

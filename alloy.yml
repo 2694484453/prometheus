@@ -1,0 +1,20 @@
+version: "3"
+services:
+  alloy:
+    image: grafana/alloy:v1.6.1
+    profiles: ["alloy"]
+    restart: on-failure
+    volumes:
+      - ./config/alloy:/etc/alloy
+      - /home/alloy/data:/var/lib/alloy/data
+    environment:
+      TEMPO_HOST: 124.221.2.29:4317
+    command:
+      - run
+      - /etc/alloy/config.alloy
+      - --storage.path=/var/lib/alloy/data
+      - --server.http.listen-addr=0.0.0.0:12345
+      - --stability.level=experimental # Enable all functionality
+    ports:
+      - "12345:12345"
+
