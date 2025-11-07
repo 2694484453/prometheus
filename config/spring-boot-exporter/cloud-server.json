@@ -1,0 +1,11 @@
+[
+  {
+    "labels": {
+      "job": "cloud-server",
+      "instance": "cloud-server"
+    },
+    "targets": [
+      "cloud-server.gpg123.vip"
+    ]
+  }
+]

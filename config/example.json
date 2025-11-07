@@ -1,0 +1,10 @@
+[
+  {
+    "labels": {
+      "job": "example"
+    },
+    "targets": [
+      "example:9100"
+    ]
+  }
+]
