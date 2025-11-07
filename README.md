@@ -1,21 +1,21 @@
 ## 项目名称
-> 请介绍一下你的项目吧  
-
-
+> prometheus监控+exporter指标+grafana可视化系统部署脚本
 
 ## 运行条件
 > 列出运行该项目所必须的条件和相关依赖  
-* 条件一
-* 条件二
-* 条件三
+* 条件一 git clone此项目
+* 条件二 linux或docker+docker-compose环境下
+* 条件三 
+
+## 部署方案
+
+>方案1: 基于二进制客户端启动
 
 
+>方案2: 基于设置service启动
+ 
 
-## 运行说明
-> 说明如何运行和使用你的项目，建议给出具体的步骤说明
-* 操作一
-* 操作二
-* 操作三  直接安装apt install prometheus-node-exporter
+>方案3：基于docker-compose部署启动
 
 
 
@@ -25,8 +25,11 @@
 
 
 ## 技术架构
-> 使用的技术框架或系统架构图等相关说明，请填写在这里  
+> git、docker、docker-compose、shell  
 
 
-## 协作者
-> 高效的协作会激发无尽的创造力，将他们的名字记录在这里吧
+## 作者
+> gaopuguang（2694484453@qq.com）
+
+## 推荐
+1.配置文件放入config和rules进行文件修改和提交，部署端使用git pull进行更新
