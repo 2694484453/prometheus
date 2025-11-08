@@ -50,6 +50,14 @@ scrape_configs:
       - refresh_interval: 5s
         files:
           - config/node-exporter/*.json
+  #amd-gpu-exporter类型
+  - job_name: 'amd-gpu-exporter'
+    metrics_path: '/metrics'
+    scrape_interval: 5s
+    file_sd_configs:
+      - refresh_interval: 5s
+        files:
+          - config/amd-gpu-exporter/*.json
   #nginx-exporter类型
   - job_name: 'nginx-exporter-files'
     metrics_path: '/metrics'
