@@ -1,0 +1,10 @@
+[
+  {
+    "labels": {
+      "job": "jaeger.gpg123.vip"
+    },
+    "targets": [
+      "jaeger.gpg123.vip"
+    ]
+  }
+]

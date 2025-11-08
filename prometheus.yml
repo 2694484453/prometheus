@@ -59,7 +59,7 @@ scrape_configs:
         files:
           - config/amd-gpu-exporter/*.json
   #nginx-exporter类型
-  - job_name: 'nginx-exporter-files'
+  - job_name: 'nginx-exporter'
     metrics_path: '/metrics'
     scrape_interval: 5s
     file_sd_configs:
@@ -67,10 +67,21 @@ scrape_configs:
         files:
           - config/nginx-exporter/*.json
   #caddy类型
-  - job_name: 'caddy-files'
+  - job_name: 'caddy'
     metrics_path: '/mertrics'
     scrape_interval: 5s
     file_sd_configs:
       - refresh_interval: 5s
         files:
           - /config/caddy/*.json
+  #caddy类型
+  - job_name: 'jaeger-exporter'
+    metrics_path: '/mertrics'
+    scrape_interval: 5s
+    scheme: https
+    tls_config:
+       insecure_skip_verify: true
+    file_sd_configs:
+      - refresh_interval: 5s
+        files:
+          - /config/jaeger-exporter/*.json
