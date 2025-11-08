@@ -1,7 +1,7 @@
 version: "3"
 services:
   device-metrics-exporter:
-    image: rocm/device-metrics-exporter
+    image: rocm/device-metrics-exporter:v1.4.0
     container_name: device-metrics-exporter
     restart: unless-stopped
     privileged: true  # 需要特权模式访问GPU设备
