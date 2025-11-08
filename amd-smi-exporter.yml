@@ -1,14 +1,14 @@
 version: '3'
 services:
   amd-smi-exporter:
-    image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/amdih/amd-smi-exporter:0.5
+    image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/amdih/amd-smi-exporter:0.1
     container_name: amd_smi_exporter
     restart: unless-stopped
     privileged: true  # 需要特权模式访问GPU设备
     devices:
+      - /dev/cpu:/dev/cpu
       - /dev/kfd:/dev/kfd
       - /dev/dri:/dev/dri
-      - /dev/cpu:/dev/cpu
     ports:
       - "2021:2021"  # AMD SMI Exporter 默认端口
 #docker run -d --name amd-exporter --device=/dev/cpu --device=/dev/kfd  --device=/dev/dri --privileged -p 2021:2021 amd_smi_exporter_container:2.0
