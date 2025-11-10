@@ -1,0 +1,51 @@
+[Unit]
+# 服务描述
+Description=Example Service
+# 链接
+Documentation=https://example.com/docs
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+# 用户
+#User=example-user
+# 用户组
+#Group=example-group
+WorkingDirectory=/opt/example
+# 启动位置
+ExecStart=/usr/bin/example --config /etc/example/config.yaml
+ExecReload=/bin/kill -HUP $MAINPID
+# 重启条件
+Restart=on-failure
+# 重启次数
+RestartSec=5
+# 重启超时
+TimeoutStopSec=30
+# 安全设置
+#NoNewPrivileges=yes
+#PrivateTmp=yes
+#ProtectSystem=strict
+#ProtectHome=yes
+#ReadWritePaths=/var/lib/example /var/log/example
+# 资源限制
+#LimitNOFILE=65536
+#MemoryLimit=512M
+
+[Install]
+WantedBy=multi-user.target
+
+#其他
+# sudo nano /etc/systemd/system/example.service
+# 重启加载配置
+# sudo systemctl daemon-reload
+# 开启服务自启动
+# sudo systemctl enable example.service
+# 启动服务
+# sudo systemctl start example.service
+# 停止服务
+# sudo systemctl stop example.service
+# 查看服务
+# sudo systemctl status example.service
+# 查看服务日志
+# sudo journalctl -u example.service -f
