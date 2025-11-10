@@ -1,0 +1,10 @@
+[
+  {
+    "labels": {
+      "job": "amd-smi-exporter.nas.gpg123.vip"
+    },
+    "targets": [
+      "amd-smi-exporter.nas.gpg123.vip"
+    ]
+  }
+]
