@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     privileged: true  # 需要特权模式访问GPU设备
     devices:
-      - /dev/kfd:/dev/kfd
-      - /dev/dri:/dev/dri
+      - "/dev/kfd:/dev/kfd"
+      - "/dev/dri:/dev/dri"
     ports:
       - "5000:5000"
