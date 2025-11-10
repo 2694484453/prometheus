@@ -1,10 +1,10 @@
 [
   {
     "labels": {
-      "job": "hcs.gpg123.vip"
+      "job": "node-exporter.hcs.gpg123.vip"
     },
     "targets": [
-      "hcs.gpg123.vip:9100"
+      "node-exporter.hcs.gpg123.vip"
     ]
   }
 ]
