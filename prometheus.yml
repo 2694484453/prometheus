@@ -86,7 +86,6 @@ scrape_configs:
   - job_name: 'traefik-exporter'
     metrics_path: '/mertrics'
     scrape_interval: 5s
-    scheme: https
     file_sd_configs:
       - refresh_interval: 5s
         files:
@@ -95,9 +94,6 @@ scrape_configs:
   - job_name: 'jaeger-exporter'
     metrics_path: '/mertrics'
     scrape_interval: 5s
-    scheme: https
-    tls_config:
-       insecure_skip_verify: true
     file_sd_configs:
       - refresh_interval: 5s
         files:
