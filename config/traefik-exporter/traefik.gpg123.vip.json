@@ -1,0 +1,10 @@
+[
+  {
+    "labels": {
+      "job": "traefik-exporter.gpg123.vip"
+    },
+    "targets": [
+      "traefik-exporter.gpg123.vip"
+    ]
+  }
+]

@@ -75,14 +75,22 @@ scrape_configs:
         files:
           - config/nginx-exporter/*.json
   #caddy类型
-  - job_name: 'caddy'
+  - job_name: 'caddy-exporter'
     metrics_path: '/mertrics'
     scrape_interval: 5s
     file_sd_configs:
       - refresh_interval: 5s
         files:
-          - /config/caddy/*.json
+          - /config/caddy-exporter/*.json
   #caddy类型
+  - job_name: 'traefik-exporter'
+    metrics_path: '/mertrics'
+    scrape_interval: 5s
+    file_sd_configs:
+      - refresh_interval: 5s
+        files:
+          - /config/traefik-exporter/*.json
+  #jaeger类型
   - job_name: 'jaeger-exporter'
     metrics_path: '/mertrics'
     scrape_interval: 5s
