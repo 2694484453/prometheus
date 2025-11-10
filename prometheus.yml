@@ -82,10 +82,11 @@ scrape_configs:
       - refresh_interval: 5s
         files:
           - /config/caddy-exporter/*.json
-  #caddy类型
+  #traefik类型
   - job_name: 'traefik-exporter'
     metrics_path: '/mertrics'
     scrape_interval: 5s
+    scheme: https
     file_sd_configs:
       - refresh_interval: 5s
         files:
