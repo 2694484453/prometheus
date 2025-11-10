@@ -46,7 +46,6 @@ scrape_configs:
   - job_name: 'node-exporter'
     metrics_path: '/metrics'
     scrape_interval: 5s
-    scheme: https
     file_sd_configs:
       - refresh_interval: 5s
         files:
