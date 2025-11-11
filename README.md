@@ -4,8 +4,7 @@
 ## 运行条件
 > 列出运行该项目所必须的条件和相关依赖  
 * 条件一 git clone此项目
-* 条件二 linux或docker+docker-compose环境下
-* 条件三 赋予可执行文件必要权限
+* 条件二 需要在linux或docker+docker-compose或k8s环境下
 
 ## 部署方案
 
