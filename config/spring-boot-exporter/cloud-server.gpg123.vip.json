@@ -1,8 +1,7 @@
 [
   {
     "labels": {
-      "job": "cloud-server",
-      "instance": "cloud-server"
+      "job": "cloud-server.gpg123.vip"
     },
     "targets": [
       "cloud-server.gpg123.vip"
