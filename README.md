@@ -9,13 +9,13 @@
 
 ## 部署方案
 
-### 方案1: 基于二进制客户端启动
->>1.拷贝安装包下的二进制文件到 /usr/local/bin 目录下或使用ln -s进行软连接后并赋予权限<br/>
+### 适用于linux启动（基于二进制客户端启动）
+>1.拷贝安装包下的二进制文件到 /usr/local/bin 目录下或使用ln -s进行软连接后并赋予权限<br/>
 
-### 方案2: 基于设置service启动
->>1.拷贝安装包下的二进制文件到 /usr/local/bin 目录下或使用ln -s进行软连接后并赋予权限<br/>
->>2.拷贝service文件到 /etc/systemd/system下<br/>
->>3.sudo systemctl daemon-reload
+### 适用于linux的开机自启动（基于设置service启动）
+>1.拷贝安装包下的二进制文件到 /usr/local/bin 目录下或使用ln -s进行软连接后并赋予权限<br/>
+>2.拷贝service文件到 /etc/systemd/system下<br/>
+>3.sudo systemctl daemon-reload
 ```aiignore
 cp name.service /etc/systemd/system
 ```
@@ -39,9 +39,38 @@ sudo systemctl status name.service
 ```aiignore
 sudo journalctl -u name.service -f
 ```
-### 方案3：基于docker-compose部署启动
->>直接执行docker-compose -f xxx.yml up -d 
+### 适用于docker等容器化部署（基于docker-compose部署启动）
+>直接执行docker-compose -f xxx.yml up -d 
 
+### 适用于k8s等编排部署（helm&chart）
+> prometheus基础包（包含prometheus、alertmanager、node-exporter等）
+```text
+#执行安装
+helm install prometheus ./prometheus -n monitoring --create-namespace
+#更新
+helm upgrade prometheus ./prometheus -n monitoring
+#卸载
+helm uninstall prometheus -n monitoring
+```
+
+>kube-prometheus-stack安装包，一体化程度较高（包含prometheus、alertmanager、grafana、node-exporter等）
+```text
+#执行安装
+helm install kube-prometheus-stack ./kube-prometheus-stack -n monitoring --create-namespace
+#更新
+helm upgrade kube-prometheus-stack ./kube-prometheus-stack -n monitoring
+#卸载
+helm uninstall kube-prometheus-stack ./kube-prometheus-stack -n monitoring
+```
+其他操作
+```text
+#创建namespace
+kubectl create ns monitoring
+#安装crd（如果提示缺少crd）
+kubectl create -f prometheus-operator-crd
+#删除namespace
+kubectl delete ns monitoring
+```
 
 ## 测试说明
 > 如果有测试相关内容需要说明，请填写在这里  
