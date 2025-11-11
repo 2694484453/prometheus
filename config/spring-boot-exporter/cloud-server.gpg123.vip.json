@@ -4,7 +4,7 @@
       "job": "cloud-server.gpg123.vip"
     },
     "targets": [
-      "cloud-server.gpg123.vip"
+      "hcs.gpg123.vip:9099"
     ]
   }
 ]
