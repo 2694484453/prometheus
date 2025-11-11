@@ -1,0 +1,10 @@
+[
+  {
+    "labels": {
+      "job": "coredns.hcs.gpg123.vip"
+    },
+    "targets": [
+      "coredns.hcs.gpg123.vip"
+    ]
+  }
+]
