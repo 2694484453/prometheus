@@ -77,7 +77,7 @@ kubectl delete ns monitoring
 
 
 ## 技术架构
-> git、docker、docker-compose、shell  
+> git、docker、docker-compose、shell、helm&chart
 
 
 ## 作者
