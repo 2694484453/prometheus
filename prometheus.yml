@@ -97,7 +97,7 @@ scrape_configs:
     file_sd_configs:
       - refresh_interval: 5s
         files:
-          - /config/caddy-exporter/*.json
+          - config/caddy-exporter/*.json
   #traefik类型
   - job_name: 'traefik-exporter'
     metrics_path: '/mertrics'
@@ -105,7 +105,7 @@ scrape_configs:
     file_sd_configs:
       - refresh_interval: 5s
         files:
-          - /config/traefik-exporter/*.json
+          - config/traefik-exporter/*.json
   #jaeger类型
   - job_name: 'jaeger-exporter'
     metrics_path: '/mertrics'
@@ -113,4 +113,4 @@ scrape_configs:
     file_sd_configs:
       - refresh_interval: 5s
         files:
-          - /config/jaeger-exporter/*.json
+          - config/jaeger-exporter/*.json
