@@ -16,6 +16,7 @@ rule_files:
   # - "second_rules.yml"
    - "rules/amd-smi-exporter/*.yml"
    - "rules/node-exporter/*.yml"
+   - "rules/jaeger-exporter/*.yml"
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
 scrape_configs:
