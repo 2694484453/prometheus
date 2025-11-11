@@ -4,7 +4,7 @@
       "job": "traefik-exporter.ecs.gpg123.vip"
     },
     "targets": [
-      "traefik-exporter.ecs.gpg123.vip"
+      "ecs.gpg123.vip:9100"
     ]
   }
 ]
