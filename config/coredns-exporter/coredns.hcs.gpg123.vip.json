@@ -4,7 +4,7 @@
       "job": "coredns.hcs.gpg123.vip"
     },
     "targets": [
-      "coredns.hcs.gpg123.vip"
+      "hcs.gpg123.vip:9153"
     ]
   }
 ]

@@ -4,7 +4,7 @@
       "job": "metrics-server-exporter.gpg123.vip"
     },
     "targets": [
-      "metrics-server-exporter.gpg123.vip"
+      "hcs.gpg123.vip:10250"
     ]
   }
 ]
