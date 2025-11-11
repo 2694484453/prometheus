@@ -1,0 +1,10 @@
+[
+  {
+    "labels": {
+      "job": "metrics-server-exporter.gpg123.vip"
+    },
+    "targets": [
+      "metrics-server-exporter.gpg123.vip"
+    ]
+  }
+]

@@ -74,6 +74,22 @@ scrape_configs:
       - refresh_interval: 5s
         files:
           - config/nginx-exporter/*.json
+  #coredns-exporter类型
+  - job_name: 'coredns-exporter'
+    metrics_path: '/metrics'
+    scrape_interval: 5s
+    file_sd_configs:
+      - refresh_interval: 5s
+        files:
+          - config/coredns-exporter/*.json
+  #metrics-server-exporter类型
+  - job_name: 'metrics-server-exporter'
+    metrics_path: '/metrics'
+    scrape_interval: 5s
+    file_sd_configs:
+      - refresh_interval: 5s
+        files:
+          - config/metrics-server-exporter/*.json
   #caddy类型
   - job_name: 'caddy-exporter'
     metrics_path: '/mertrics'
