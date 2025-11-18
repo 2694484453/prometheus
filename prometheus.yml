@@ -27,7 +27,7 @@ scrape_configs:
     # scheme defaults to 'http'.
     static_configs:
       - targets: [ "localhost:9090" ]
-    #servers
+  #servers
   - job_name: "prometheus-servers"
     metrics_path: '/metrics'
     scrape_interval: 5s
@@ -35,7 +35,7 @@ scrape_configs:
       - refresh_interval: 5s
         files:
           - config/prometheus-servers/*.json
-    #spring-boot类型
+  #spring-boot类型
   - job_name: 'spring-boot'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
@@ -115,3 +115,11 @@ scrape_configs:
       - refresh_interval: 5s
         files:
           - config/jaeger-exporter/*.json
+  #frps类型
+  - job_name: 'frps-exporter'
+    metrics_path: '/metrics'
+    scrape_interval: 5s
+    file_sd_configs:
+      - refresh_interval: 5s
+        files:
+          - config/frps-exporter/*.json
