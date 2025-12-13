@@ -4,7 +4,7 @@
       "job": "hcs.gpg123.vip"
     },
     "targets": [
-      "example:9100"
+      "hcs.gpg123.vip:8086"
     ]
   }
 ]
