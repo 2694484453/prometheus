@@ -17,6 +17,7 @@ rule_files:
    - "rules/amd-smi-exporter/*.yml"
    - "rules/node-exporter/*.yml"
    - "rules/jaeger-exporter/*.yml"
+   - "rules/kube-state-metrics/*.yml"
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
 scrape_configs:
@@ -147,3 +148,11 @@ scrape_configs:
       - refresh_interval: 5s
         files:
           - config/kube-scheduler-exporter/*.json
+  #kube-state-metrics类型
+  - job_name: kube-state-metrics-exporter'
+    metrics_path: '/metrics'
+    scrape_interval: 5s
+    file_sd_configs:
+      - refresh_interval: 5s
+        files:
+          - config/kube-state-metrics-exporter/*.json
