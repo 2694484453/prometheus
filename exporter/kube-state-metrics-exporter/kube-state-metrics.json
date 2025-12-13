@@ -1,0 +1,10 @@
+[
+  {
+    "labels": {
+      "job": "hcs.gpg123.vip"
+    },
+    "targets": [
+      "example:9100"
+    ]
+  }
+]
