@@ -1,7 +1,7 @@
 [
   {
     "labels": {
-      "job": "prometheus.gpg123.vip",
+      "job": "prometheus.gpg123.vip"
     },
     "targets": [
       "hcs.gpg123.vip:9090"

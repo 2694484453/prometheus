@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-scheduler-expose
+  namespace: kube-system
+spec:
+  ports:
+    - name: http-metrics
+      port: 10251
+      protocol: TCP
+      targetPort: 10251
+      nodePort: 10251
+  selector:
+     component: kube-scheduler
+  type: NodePort
