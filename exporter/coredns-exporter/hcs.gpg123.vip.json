@@ -1,7 +1,7 @@
 [
   {
     "labels": {
-      "job": "coredns.hcs.gpg123.vip"
+      "job": "hcs.gpg123.vip"
     },
     "targets": [
       "hcs.gpg123.vip:9153"
