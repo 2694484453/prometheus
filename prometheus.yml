@@ -123,3 +123,27 @@ scrape_configs:
       - refresh_interval: 5s
         files:
           - config/frps-exporter/*.json
+  #kube-dns类型
+  - job_name: 'kube-dns-exporter'
+    metrics_path: '/metrics'
+    scrape_interval: 5s
+    file_sd_configs:
+      - refresh_interval: 5s
+        files:
+          - config/kube-dns-exporter/*.json
+  #kube-proxy类型
+  - job_name: 'kube-proxy-exporter'
+    metrics_path: '/metrics'
+    scrape_interval: 5s
+    file_sd_configs:
+      - refresh_interval: 5s
+        files:
+          - config/kube-proxy-exporter/*.json
+  #kube-scheduler-exporter类型
+  - job_name: 'kube-scheduler-exporter'
+    metrics_path: '/metrics'
+    scrape_interval: 5s
+    file_sd_configs:
+      - refresh_interval: 5s
+        files:
+          - config/kube-scheduler-exporter/*.json
