@@ -1,10 +1,10 @@
 [
   {
     "labels": {
-      "job": "spring-boot-demo"
+      "job": "spring-boot-demo.gpg123.vip"
     },
     "targets": [
-      "hcs.gpg123.vip:9100"
+      "hcs.gpg123.vip:9098"
     ]
   }
 ]
