@@ -4,7 +4,7 @@
       "job": "jaeger.gpg123.vip"
     },
     "targets": [
-      "jaeger.gpg123.vip"
+      "ecs.gpg123.vip:8088"
     ]
   }
 ]
