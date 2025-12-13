@@ -2,10 +2,9 @@
   {
     "labels": {
       "job": "prometheus.gpg123.vip",
-      "instance": "prometheus.gpg123.vip"
     },
     "targets": [
-      "prometheus.gpg123.vip"
+      "hcs.gpg123.vip:9090"
     ]
   }
 ]
