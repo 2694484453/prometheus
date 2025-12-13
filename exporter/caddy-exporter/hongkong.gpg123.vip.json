@@ -1,10 +1,10 @@
 [
   {
     "labels": {
-      "job": "hongkong.gpg123.vip"
+      "job": "ecs.gpg123.vip"
     },
     "targets": [
-      "hongkong.gpg123.vip:2020"
+      "ecs.gpg123.vip:2019"
     ]
   }
 ]
