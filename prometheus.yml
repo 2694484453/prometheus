@@ -149,7 +149,7 @@ scrape_configs:
         files:
           - config/kube-scheduler-exporter/*.json
   #kube-state-metrics类型
-  - job_name: kube-state-metrics-exporter'
+  - job_name: 'kube-state-metrics-exporter'
     metrics_path: '/metrics'
     scrape_interval: 5s
     file_sd_configs:
