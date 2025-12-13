@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-proxy-expose
+  namespace: kube-system
+spec:
+  ports:
+    - name: http-metrics
+      port: 10249
+      protocol: TCP
+      targetPort: 10249
+      nodePort: 10249
+  selector:
+    k8s-app: kube-proxy
+  type: NodePort
+
