@@ -1,7 +1,7 @@
 [
   {
     "labels": {
-      "job": "traefik-exporter.gpg123.vip"
+      "job": "traefik.gpg123.vip"
     },
     "targets": [
       "hcs.gpg123.vip:9100"
