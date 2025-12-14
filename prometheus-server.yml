@@ -4,6 +4,7 @@ services:
     image: prom/prometheus:latest #可修改其他版本
     container_name: prometheus
     restart: unless-stopped
+    command: ["--config.file=/etc/prometheus/prometheus.yml", "--storage.tsdb.path=/prometheus", "--web.enable-lifecycle"]
     ports:
       - "9090:9090"
     volumes:
