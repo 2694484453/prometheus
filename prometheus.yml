@@ -17,7 +17,12 @@ rule_files:
    - "rules/amd-smi-exporter/*.yml"
    - "rules/node-exporter/*.yml"
    - "rules/jaeger-exporter/*.yml"
-   - "rules/kube-state-metrics/*.yml"
+   - "rules/kube-state-metrics-exporter/*.yml"
+   - "rules/caddy-exporter/*.yml"
+   - "rules/spring-boot-exporter/*.yml"
+   - "rules/coredns-exporter/*.yml"
+   - "rules/frps-exporter/*.yml"
+   - "rules/traefik-exporter/*.yml"
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
 scrape_configs:
