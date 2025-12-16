@@ -1,7 +1,8 @@
 [
   {
     "labels": {
-      "job": "spring-boot-demo.gpg123.vip"
+      "application": "spring-boot-demo",
+      "job": "spring-boot-demo"
     },
     "targets": [
       "hcs.gpg123.vip:9098"
