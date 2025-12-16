@@ -161,3 +161,11 @@ scrape_configs:
       - refresh_interval: 5s
         files:
           - config/kube-state-metrics-exporter/*.json
+  #windows-exporter类型
+  - job_name: 'windows-exporter'
+    metrics_path: '/metrics'
+    scrape_interval: 5s
+    file_sd_configs:
+      - refresh_interval: 5s
+        files:
+          - config/windows-exporter/*.json
