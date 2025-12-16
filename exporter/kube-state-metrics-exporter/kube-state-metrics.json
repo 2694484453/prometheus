@@ -2,7 +2,8 @@
   {
     "labels": {
       "job": "hcs.gpg123.vip",
-      "cluster": "hcs.gpg123.vip"
+      "cluster": "hcs.gpg123.vip",
+      "k8s": "hcs.gpg123.vip"
     },
     "targets": [
       "hcs.gpg123.vip:8086"
