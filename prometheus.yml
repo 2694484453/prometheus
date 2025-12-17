@@ -40,33 +40,25 @@ scrape_configs:
       - url: https://cloud-server.gpg123.vip/api/dashboard/http-sd
         refresh_interval: 5s
   # 基于文件
-  - job_name: 'file-sd'
-    metrics_path: '/metrics'
-    scrape_interval: 5s
-    file_sd_configs:
-      - refresh_interval: 5s
-        files:
-          - exporter/node-exporter/*.json
-          - exporter/prometheus-servers/*.json
-          - exporter/amd-smi-exporter/*.json
-          - exporter/amd-gpu-exporter/*.json
-          - exporter/coredns-exporter/*.json
-          - exporter/nginx-exporter/*.json
-          - exporter/metrics-server-exporter/*.json
-          - exporter/caddy-exporter/*.json
-          - exporter/traefik-exporter/*.json
-          - exporter/jaeger-exporter/*.json
-          - exporter/frps-exporter/*.json
-          - exporter/kube-dns-exporter/*.json
-          - exporter/kube-proxy-exporter/*.json
-          - exporter/kube-scheduler-exporter/*.json
-          - exporter/kube-state-metrics-exporter/*.json
-          - exporter/windows-exporter/*.json
-  #spring-boot类型
-  - job_name: 'spring-boot'
-    metrics_path: '/actuator/prometheus'
-    scrape_interval: 5s
-    file_sd_configs:
-      - refresh_interval: 5s
-        files:
-          - exporter/spring-boot-exporter/*.json
+#  - job_name: 'file-sd'
+#    metrics_path: '/metrics'
+#    scrape_interval: 5s
+#    file_sd_configs:
+#      - refresh_interval: 5s
+#        files:
+#          - exporter/node-exporter/*.json
+#          - exporter/prometheus-servers/*.json
+#          - exporter/amd-smi-exporter/*.json
+#          - exporter/amd-gpu-exporter/*.json
+#          - exporter/coredns-exporter/*.json
+#          - exporter/nginx-exporter/*.json
+#          - exporter/metrics-server-exporter/*.json
+#          - exporter/caddy-exporter/*.json
+#          - exporter/traefik-exporter/*.json
+#          - exporter/jaeger-exporter/*.json
+#          - exporter/frps-exporter/*.json
+#          - exporter/kube-dns-exporter/*.json
+#          - exporter/kube-proxy-exporter/*.json
+#          - exporter/kube-scheduler-exporter/*.json
+#          - exporter/kube-state-metrics-exporter/*.json
+#          - exporter/windows-exporter/*.json
