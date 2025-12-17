@@ -7,4 +7,4 @@ groups:
     labels:
       severity: warning
     annotations:
-      summary: "High CPU on {{ $labels.instance }}"
+      summary: "High CPU on {{ `{{$labels.instance}}` }}"
