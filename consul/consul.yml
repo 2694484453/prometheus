@@ -1,0 +1,17 @@
+version: '3'
+services:
+  consul:
+    image: consul:latest
+    container_name: consul-server
+    ports:
+      - "8500:8500"   # Web UI 和 HTTP API
+      - "8600:8600/udp"  # DNS 接口（可选）
+    command: >
+      consul agent -server -bootstrap-expect=1
+      -ui
+      -client=0.0.0.0
+      -bind=0.0.0.0
+      -advertise=127.0.0.1
+      -data-dir=/consul/data
+    volumes:
+      - /home/consul:/consul/data
