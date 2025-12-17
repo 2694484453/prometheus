@@ -7,5 +7,14 @@
     "targets": [
       "hcs.gpg123.vip:8086"
     ]
+  },
+  {
+    "labels": {
+      "job": "feiniu.gpg123.vip",
+      "cluster": "feiniu.gpg123.vip"
+    },
+    "targets": [
+      "kube-state-metrics.nas.gpg123.vip"
+    ]
   }
 ]
