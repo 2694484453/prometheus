@@ -1,0 +1,10 @@
+groups:
+- name: user-service-alerts
+  rules:
+  - alert: UserServiceHighCPU
+    expr: rate(process_cpu_seconds_total{job="user-service"}[5m]) > 0.8
+    for: 2m
+    labels:
+      severity: warning
+    annotations:
+      summary: "High CPU on {{ $labels.instance }}"

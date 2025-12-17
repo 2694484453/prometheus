@@ -15,3 +15,15 @@ services:
       -data-dir=/consul/data
     volumes:
       - /home/consul:/consul/data
+  consul-template:
+    image: hashicorp/consul-template:latest
+    volumes:
+      - ./templates:/templates:ro
+      - ./output:/output
+      - /home/prometheus:/home/prometheus
+    command: >
+      consul-template
+      -consul-addr=hcs.gpg123.vip:8500
+      -template="/templates/rules.ctmpl:/home/prometheus/rules/user-service.yml:curl -X POST https://prometheus.gpg123.vip:9090/-/reload"
+    depends_on:
+      - consul
