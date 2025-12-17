@@ -18,6 +18,7 @@ services:
   consul-template:
     image: hashicorp/consul-template:latest
     container_name: consul-template
+    user: root
     volumes:
       - ./templates:/templates:ro
       - ./output:/output
