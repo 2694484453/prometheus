@@ -37,7 +37,7 @@ scrape_configs:
   - job_name: "http-sd"
     scrape_interval: 5s
     http_sd_configs:
-      - url: https://cloud-server/dashboard/http-sd
+      - url: https://cloud-server.gpg123.vip/api/dashboard/http-sd
         refresh_interval: 5s
   # 基于文件
   - job_name: 'springboot-file-sd'
