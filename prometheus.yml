@@ -14,15 +14,15 @@ alerting:
 rule_files:
   # - "first_rules.yml"
   # - "second_rules.yml"
-   - "rules/amd-smi-exporter/*.yml"
-   - "rules/node-exporter/*.yml"
-   - "rules/jaeger-exporter/*.yml"
-   - "rules/kube-state-metrics-exporter/*.yml"
-   - "rules/caddy-exporter/*.yml"
-   - "rules/spring-boot-exporter/*.yml"
-   - "rules/coredns-exporter/*.yml"
-   - "rules/frps-exporter/*.yml"
-   - "rules/traefik-exporter/*.yml"
+  - "rules/amd-smi-exporter/*.yml"
+  - "rules/node-exporter/*.yml"
+  - "rules/jaeger-exporter/*.yml"
+  - "rules/kube-state-metrics-exporter/*.yml"
+  - "rules/caddy-exporter/*.yml"
+  - "rules/spring-boot-exporter/*.yml"
+  - "rules/coredns-exporter/*.yml"
+  - "rules/frps-exporter/*.yml"
+  - "rules/traefik-exporter/*.yml"
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
 scrape_configs:
@@ -33,14 +33,35 @@ scrape_configs:
     # scheme defaults to 'http'.
     static_configs:
       - targets: [ "localhost:9090" ]
-  #servers
-  - job_name: "prometheus-servers"
+  # 基于HTTP SD（Prometheus 2.28+）
+  - job_name: "http-sd"
+    scrape_interval: 5s
+    http_sd_configs:
+      - url: https://cloud-server/dashboard/http-sd
+        refresh_interval: 5s
+  # 基于文件
+  - job_name: 'springboot-file-sd'
     metrics_path: '/metrics'
     scrape_interval: 5s
     file_sd_configs:
       - refresh_interval: 5s
         files:
+          - exporter/node-exporter/*.json
           - exporter/prometheus-servers/*.json
+          - exporter/amd-smi-exporter/*.json
+          - exporter/amd-gpu-exporter/*.json
+          - exporter/coredns-exporter/*.json
+          - exporter/nginx-exporter/*.json
+          - exporter/metrics-server-exporter/*.json
+          - exporter/caddy-exporter/*.json
+          - exporter/traefik-exporter/*.json
+          - exporter/jaeger-exporter/*.json
+          - exporter/frps-exporter/*.json
+          - exporter/kube-dns-exporter/*.json
+          - exporter/kube-proxy-exporter/*.json
+          - exporter/kube-scheduler-exporter/*.json
+          - exporter/kube-state-metrics-exporter/*.json
+          - exporter/windows-exporter/*.json
   #spring-boot类型
   - job_name: 'spring-boot'
     metrics_path: '/actuator/prometheus'
@@ -49,123 +70,3 @@ scrape_configs:
       - refresh_interval: 5s
         files:
           - exporter/spring-boot-exporter/*.json
-  #node-exporter类型
-  - job_name: 'node-exporter'
-    metrics_path: '/metrics'
-    scrape_interval: 5s
-    file_sd_configs:
-      - refresh_interval: 5s
-        files:
-          - exporter/node-exporter/*.json
-  #amd-smi-exporter类型
-  - job_name: 'amd-smi-exporter'
-    metrics_path: '/metrics'
-    scrape_interval: 5s
-    file_sd_configs:
-      - refresh_interval: 5s
-        files:
-          - exporter/amd-smi-exporter/*.json
-  #amd-gpu-exporter类型
-  - job_name: 'amd-gpu-exporter'
-    metrics_path: '/metrics'
-    scrape_interval: 5s
-    file_sd_configs:
-      - refresh_interval: 5s
-        files:
-          - exporter/amd-gpu-exporter/*.json
-  #nginx-exporter类型
-  - job_name: 'nginx-exporter'
-    metrics_path: '/metrics'
-    scrape_interval: 5s
-    file_sd_configs:
-      - refresh_interval: 5s
-        files:
-          - exporter/nginx-exporter/*.json
-  #coredns-exporter类型
-  - job_name: 'coredns-exporter'
-    metrics_path: '/metrics'
-    scrape_interval: 5s
-    file_sd_configs:
-      - refresh_interval: 5s
-        files:
-          - exporter/coredns-exporter/*.json
-  #metrics-server-exporter类型
-  - job_name: 'metrics-server-exporter'
-    metrics_path: '/metrics'
-    scrape_interval: 5s
-    file_sd_configs:
-      - refresh_interval: 5s
-        files:
-          - exporter/metrics-server-exporter/*.json
-  #caddy类型
-  - job_name: 'caddy-exporter'
-    metrics_path: '/metrics'
-    scrape_interval: 5s
-    file_sd_configs:
-      - refresh_interval: 5s
-        files:
-          - exporter/caddy-exporter/*.json
-  #traefik类型
-  - job_name: 'traefik-exporter'
-    metrics_path: '/metrics'
-    scrape_interval: 5s
-    file_sd_configs:
-      - refresh_interval: 5s
-        files:
-          - exporter/traefik-exporter/*.json
-  #jaeger类型
-  - job_name: 'jaeger-exporter'
-    metrics_path: '/metrics'
-    scrape_interval: 5s
-    file_sd_configs:
-      - refresh_interval: 5s
-        files:
-          - exporter/jaeger-exporter/*.json
-  #frps类型
-  - job_name: 'frps-exporter'
-    metrics_path: '/metrics'
-    scrape_interval: 5s
-    file_sd_configs:
-      - refresh_interval: 5s
-        files:
-          - exporter/frps-exporter/*.json
-  #kube-dns类型
-  - job_name: 'kube-dns-exporter'
-    metrics_path: '/metrics'
-    scrape_interval: 5s
-    file_sd_configs:
-      - refresh_interval: 5s
-        files:
-          - exporter/kube-dns-exporter/*.json
-  #kube-proxy类型
-  - job_name: 'kube-proxy-exporter'
-    metrics_path: '/metrics'
-    scrape_interval: 5s
-    file_sd_configs:
-      - refresh_interval: 5s
-        files:
-          - exporter/kube-proxy-exporter/*.json
-  #kube-scheduler-exporter类型
-  - job_name: 'kube-scheduler-exporter'
-    metrics_path: '/metrics'
-    scrape_interval: 5s
-    file_sd_configs:
-      - refresh_interval: 5s
-        files:
-          - exporter/kube-scheduler-exporter/*.json
-  #kube-state-metrics类型
-  - job_name: 'kube-state-metrics-exporter'
-    metrics_path: '/metrics'
-    scrape_interval: 5s
-    file_sd_configs:
-      - refresh_interval: 5s
-        files:
-          - exporter/kube-state-metrics-exporter/*.json
-  #windows-exporter类型
-  - job_name: 'windows-exporter'
-    metrics_path: '/metrics'
-    scrape_interval: 5s
-    file_sd_configs:
-      - refresh_interval: 5s
-        files:
-          - exporter/windows-exporter/*.json
