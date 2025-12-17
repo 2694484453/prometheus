@@ -26,6 +26,6 @@ services:
     command: >
       consul-template
       -consul-addr=hcs.gpg123.vip:8500
-      -template="/templates/rules.ctmpl:/home/prometheus/rules/user-service.yml:curl -X POST https://prometheus.gpg123.vip:9090/-/reload"
+      -template="/templates/rules.ctmpl:/home/prometheus/rules/user-service.yml:curl -X POST https://prometheus.gpg123.vip/-/reload"
     depends_on:
       - consul
