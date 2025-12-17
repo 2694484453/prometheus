@@ -8,10 +8,10 @@
 
 ## 部署方案
 
-### 适用于linux启动（基于二进制客户端启动）
+### 简单方案1:适用于linux启动（基于二进制客户端启动）+ file服务发现
 >1.拷贝安装包下的二进制文件到 /usr/local/bin 目录下或使用ln -s进行软连接后并赋予权限<br/>
 
-### 适用于linux的开机自启动（基于设置service启动）
+### 简单方案2:适用于linux的开机自启动（基于设置service启动）+ file服务发现
 >1.拷贝安装包下的二进制文件到 /usr/local/bin 目录下或使用ln -s进行软连接后并赋予权限<br/>
 >2.拷贝service文件到 /etc/systemd/system下<br/>
 >3.sudo systemctl daemon-reload
@@ -38,10 +38,13 @@ sudo systemctl status name.service
 ```aiignore
 sudo journalctl -u name.service -f
 ```
-### 适用于docker等容器化部署（基于docker-compose部署启动）
+### 中等方案3:适用于docker等容器化部署（基于docker-compose部署启动）+ file服务发现
 >直接执行docker-compose -f xxx.yml up -d 
 
-### 适用于k8s等编排部署（helm&chart）
+### 高级方案4: prometheus + consul服务发现
+>
+
+### 高级方案5:适用于k8s等编排部署（helm&chart）原生动态服务发现
 > prometheus基础包（包含prometheus、alertmanager、node-exporter等）
 ```text
 #执行安装
@@ -77,7 +80,7 @@ kubectl delete ns monitoring
 
 
 ## 技术架构
-> git、docker、docker-compose、shell、helm&chart
+> git、docker、docker-compose、shell、helm&chart、consul
 
 
 ## 作者
