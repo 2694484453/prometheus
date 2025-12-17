@@ -1,0 +1,10 @@
+[
+  {
+    "labels": {
+      "job": "windows-exporter.nas.gpg123.vip"
+    },
+    "targets": [
+      "windows-exporter.nas.gpg123.vip"
+    ]
+  }
+]

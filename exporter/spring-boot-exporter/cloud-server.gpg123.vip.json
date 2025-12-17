@@ -1,7 +1,8 @@
 [
   {
     "labels": {
-      "job": "cloud-server.gpg123.vip"
+      "application": "cloud-server",
+      "job": "cloud-server"
     },
     "targets": [
       "hcs.gpg123.vip:9098"
