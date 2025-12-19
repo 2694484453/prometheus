@@ -4,7 +4,7 @@ global:
   smtp_from: email@gpg123.vip
   smtp_auth_username: email@gpg123.vip
   #smtp_auth_identity: email@gpg123.vip
-  smtp_auth_password: Gaopuguang@2023%D
+  smtp_auth_password: Gaopuguang2025Y
   smtp_require_tls: false	
 route:
   group_by: ['alertname']
