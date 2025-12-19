@@ -35,10 +35,10 @@ scrape_configs:
       - targets: [ "localhost:9090" ]
   # 基于HTTP SD（Prometheus 2.28+，不能太频繁
   - job_name: "http-sd"
-    scrape_interval: 20s
+    scrape_interval: 30s
     http_sd_configs:
       - url: https://cloud-server.gpg123.vip/api/dashboard/http-sd
-        refresh_interval: 20s
+        refresh_interval: 30s
   # 基于文件
 #  - job_name: 'file-sd'
 #    metrics_path: '/metrics'
