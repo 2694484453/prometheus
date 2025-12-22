@@ -51,9 +51,9 @@ scrape_configs:
   # 基于文件
 #  - job_name: 'file-sd'
 #    metrics_path: '/metrics'
-#    scrape_interval: 5s
+#    scrape_interval: 15s
 #    file_sd_configs:
-#      - refresh_interval: 5s
+#      - refresh_interval: 15s
 #        files:
 #          - exporter/node-exporter/*.json
 #          - exporter/prometheus-servers/*.json
