@@ -12,9 +12,9 @@ Type=simple
 #User=example-user
 # 用户组
 #Group=example-group
-#WorkingDirectory=/opt/example
+WorkingDirectory=/home/prometheus
 # 启动位置
-ExecStart=prometheus --web.enable-lifecycle --config.file=/home/prometheus/prometheus.yaml
+ExecStart=/usr/local/bin/prometheus --web.enable-lifecycle --config.file=/home/prometheus/prometheus.yaml
 ExecReload=/bin/kill -HUP $MAINPID
 # 重启条件
 Restart=on-failure
