@@ -40,14 +40,14 @@ scrape_configs:
       - url: https://cloud-server.gpg123.vip/api/dashboard/http-sd
         refresh_interval: 15s
   # 基于consul
-  - job_name: 'consul.gpg123.vip'
-    consul_sd_configs:
-      - server: '47.97.162.27:8500'
-        services: []
-    relabel_configs:
-      - source_labels: [ __meta_consul_tags ]
-        regex: .*consul.*
-        action: keep
+#  - job_name: 'consul.gpg123.vip'
+#    consul_sd_configs:
+#      - server: '47.97.162.27:8500'
+#        services: []
+#    relabel_configs:
+#      - source_labels: [ __meta_consul_tags ]
+#        regex: .*consul.*
+#        action: keep
   # 基于文件
 #  - job_name: 'file-sd'
 #    metrics_path: '/metrics'
