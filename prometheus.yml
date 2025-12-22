@@ -37,7 +37,7 @@ scrape_configs:
   - job_name: "cloud-server-http-sd"
     scrape_interval: 15s
     http_sd_configs:
-      - url: http://hcs.gpg123.vip:9099/api/dashboard/http-sd
+      - url: https://cloud-server.gpg123.vip/api/dashboard/http-sd
         refresh_interval: 15s
   # 基于consul
 #  - job_name: 'consul.gpg123.vip'
