@@ -14,7 +14,7 @@ Type=simple
 #Group=example-group
 WorkingDirectory=/home/prometheus
 # 启动位置
-ExecStart=/usr/local/bin/prometheus --web.enable-lifecycle --config.file=/home/prometheus/prometheus.yaml
+ExecStart=/usr/local/bin/prometheus --web.enable-lifecycle --config.file=/home/prometheus/prometheus.yml
 ExecReload=/bin/kill -HUP $MAINPID
 # 重启条件
 Restart=on-failure
