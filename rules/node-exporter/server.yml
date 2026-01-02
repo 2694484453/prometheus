@@ -7,6 +7,7 @@ groups:
         for: 1m
         labels:
           severity: warning
+          createBy: 1
         annotations:
           summary: "【测试告警】节点负载过高 (实例: {{ $labels.instance }})"
           description: |-
@@ -34,6 +35,7 @@ groups:
         for: 2m
         labels:
           severity: warning
+          createBy: 1
         annotations:
           summary: "【告警】内存使用率过高 (实例: {{ $labels.instance }})"
           description: |
