@@ -15,7 +15,7 @@ route:
 receivers:
   - name: 'webhook'
     webhook_configs:
-      - url: 'https://webhook.site/96ba317c-1469-482d-9eed-576e6e5ed3ad'
+      - url: 'https://lazy-dragon-84.webhook.cool'
       - url: 'https://cloud-server.gpg123.vip/api/webhook/alert'
       - url: 'http://cloud-server.nas.gpg123.vip/api/webhook/alert'
   - name: 'email'
