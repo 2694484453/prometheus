@@ -1,0 +1,45 @@
+groups:
+  - name: disk-alerts
+    rules:
+      - alert: HighDiskUsageTest
+        # 简单的表达式，用于测试
+        expr: node_load1 > 0
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "【测试告警】节点负载过高 (实例: {{ $labels.instance }})"
+          description: |-
+            ### 告警详情
+            检测到 Prometheus 监控目标的负载过高。
+            
+            - **实例**: {{ $labels.instance }}
+            - **指标值**: {{ $value | printf "%.2f" }}
+            - **挂载点**: {{ $labels.mountpoint }}
+            - **设备**: {{ $labels.device }}
+            
+            请登录服务器进行检查。
+  - name: memory-alerts
+    rules:
+      - alert: HighMemoryUsage
+        expr: |
+          # 计算内存使用率
+          # (总内存 - 可用内存) / 总内存 * 100
+          # 100 * (1 - node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) > 50
+
+          # 为了防止除以0或数据异常，增加一个过滤条件
+          100 * (1 - node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) > 50
+          # 确保总内存大于0
+          and node_memory_MemTotal_bytes > 0
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "【告警】内存使用率过高 (实例: {{ $labels.instance }})"
+          description: |
+            检测到服务器内存使用率超过 50%。
+
+            - **实例**: {{ $labels.instance }}
+            - **挂载点**: {{ $labels.mountpoint }}
+            - **当前值**: {{ $value | printf "%.2f" }}%
+            - **时间**: {{ $value.StartsAt.Local }}
