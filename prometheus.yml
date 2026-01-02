@@ -23,6 +23,7 @@ rule_files:
   - "rules/coredns-exporter/*.yml"
   - "rules/frps-exporter/*.yml"
   - "rules/traefik-exporter/*.yml"
+  - "rules/other/*.yml"
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
 scrape_configs:

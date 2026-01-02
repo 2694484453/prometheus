@@ -1,0 +1,13 @@
+groups:
+  - name: test-alerts
+    rules:
+      - alert: TestServiceDown
+        # 表达式：如果探测失败（up == 0）
+        expr: probe_success{job="blackbox-test"} == 0
+        # 持续 10 秒为真才触发（防止抖动）
+        for: 10s
+        labels:
+          severity: critical
+        annotations:
+          summary: "测试服务已离线 (实例: {{ $labels.instance }})"
+          description: "Blackbox 探测器无法访问目标服务。请检查模拟服务是否已启动。"
