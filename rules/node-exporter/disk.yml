@@ -1,0 +1,29 @@
+groups:
+  - name: disk-alerts
+    rules:
+      # 规则1：根分区磁盘空间超过 10% 即触发 (为了测试方便设得很低)
+      - alert: HighDiskUsageTest
+        expr: 100 - (node_filesystem_avail_bytes{mountpoint="/"} * 100 / node_filesystem_size_bytes{mountpoint="/"}) > 10
+        for: 1m
+        labels:
+          severity: warning
+          team: devops
+        annotations:
+          summary: "【测试告警】磁盘空间即将耗尽 (实例: {{ $labels.instance }})"
+          description: |
+            检测到磁盘使用率过高。
+            挂载点: {{ $labels.mountpoint }}
+            设备: {{ $labels.device }}
+            值: {{ $value | printf \"%.2f\" }}%
+            状态: 触发阈值 (> 10%)
+            时间: {{ $value.StartsAt.Local }}
+
+      # 规则2：根分区可用空间小于 200GB (另一种写法，更直观)
+      - alert: LowDiskSpaceRoot
+        expr: node_filesystem_free_bytes{mountpoint="/"} < 200 * 1024 * 1024 * 1024
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "【严重】根分区剩余空间不足 200GB"
+          description: "根分区剩余空间仅剩 {{ $value | printf \"%.2f\" }} 字节，请立即清理。"
