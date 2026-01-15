@@ -88,5 +88,5 @@ kubectl delete ns monitoring
 ## 作者
 > gaopuguang（2694484453@qq.com）
 
-## 推荐
+## 推荐（流水线自动化）
 1.配置文件放入config和rules进行文件修改和提交，部署端使用git pull进行更新
