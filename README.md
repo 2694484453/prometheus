@@ -41,7 +41,7 @@ sudo journalctl -u name.service -f
 ### 中等方案3:适用于docker等容器化部署（基于docker-compose部署启动）+ file服务发现
 > 直接执行docker-compose -f xxx.yml up -d 
 
-### 高级方案4: prometheus + http-sd服务发现 + oss挂载(分布式文件系统实现规则文件管理)
+### 高级方案4: prometheus + http-sd服务发现 + oss挂载(分布式文件系统实现规则文件管理)，可实现分布式告警系统（可多个pm实例）
 > http-get接口暴露targets端点
 
 > oss挂载rules.yml文件
@@ -82,7 +82,7 @@ kubectl delete ns monitoring
 
 
 ## 技术架构
-> git、docker、docker-compose、shell、helm&chart、consul
+> git、docker、docker-compose、shell、helm&chart、分布式sw3
 
 
 ## 作者
