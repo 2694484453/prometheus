@@ -39,10 +39,12 @@ sudo systemctl status name.service
 sudo journalctl -u name.service -f
 ```
 ### 中等方案3:适用于docker等容器化部署（基于docker-compose部署启动）+ file服务发现
->直接执行docker-compose -f xxx.yml up -d 
+> 直接执行docker-compose -f xxx.yml up -d 
 
-### 高级方案4: prometheus + consul服务发现
->
+### 高级方案4: prometheus + http-sd服务发现 + oss挂载(分布式文件系统实现规则文件管理)
+> http-get接口暴露targets端点
+
+> oss挂载rules.yml文件
 
 ### 高级方案5:适用于k8s等编排部署（helm&chart）原生动态服务发现
 > prometheus基础包（包含prometheus、alertmanager、node-exporter等）
