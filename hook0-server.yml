@@ -1,0 +1,21 @@
+# docker-compose.yml
+version: '3'
+services:
+  hook0:
+    image: ghcr.io/hook0/hook0:latest
+    container_name: hook0
+    restart: unless-stopped
+    ports:
+      - "8081:8080"  # 可根据需要修改宿主机端口
+    volumes:
+      - /home/webhook/data:/app/data  # 持久化存储 endpoint 和请求数据
+    environment:
+      # 可选：设置站点标题
+      - HOOK0_TITLE=gpg-webhook
+      # 可选：设置 base URL（用于生成正确的 webhook 链接，特别是配置了反向代理时）
+      - HOOK0_BASE_URL=https://webhook.gpg123.vip
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
