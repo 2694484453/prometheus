@@ -23,7 +23,7 @@ route:
 receivers:
   - name: 'webhook'
     webhook_configs:
-      - url: 'https://lazy-dragon-84.webhook.cool'
+      - url: 'https://webhook.gpg123.vip/0d0e15df-7448-41cd-9acc-fdb0534dfca4'
       - url: 'https://cloud-server.gpg123.vip/api/webhook/alert'
       # 发送恢复通知
         send_resolved: true
