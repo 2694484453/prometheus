@@ -26,7 +26,7 @@ services:
         # 如果要用 Redis（可选）
       - STORAGE_DRIVER=redis
       - PUBSUB_DRIVER=redis
-      - REDIS_DSN=redis://:tGaopuguang%402024%25@redis.gpg123.vip:6379/1
+      - REDIS_DSN=redis://:Gaopuguang%402024%25@redis.gpg123.vip:6379/1
     # 可选：持久化数据（webhook-tester 支持 SQLite 存储）
     volumes:
       - /home/webhook:/app/data
