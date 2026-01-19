@@ -1,21 +1,32 @@
 # docker-compose.yml
 version: '3'
 services:
-  hook0:
-    image: ghcr.io/hook0/hook0:latest
-    container_name: hook0
+  webhook-tester:
+    image: ghcr.io/tarampampam/webhook-tester:2
+    container_name: webhook-tester
     restart: unless-stopped
     ports:
-      - "8081:8080"  # 可根据需要修改宿主机端口
-    volumes:
-      - /home/webhook/data:/app/data  # 持久化存储 endpoint 和请求数据
+      - "8081:8080"
+    # 可选：设置时区
     environment:
-      # 可选：设置站点标题
-      - HOOK0_TITLE=gpg-webhook
-      # 可选：设置 base URL（用于生成正确的 webhook 链接，特别是配置了反向代理时）
-      - HOOK0_BASE_URL=https://webhook.gpg123.vip
-    logging:
-      driver: json-file
-      options:
-        max-size: "10m"
-        max-file: "3"
+      - TZ=Asia/Shanghai
+      # 基础监听配置
+      - SERVER_ADDR=0.0.0.0
+      - HTTP_PORT=8080
+      # 超时设置（Go duration 格式）
+      - HTTP_READ_TIMEOUT=2m
+      - HTTP_WRITE_TIMEOUT=2m
+      - HTTP_IDLE_TIMEOUT=5m
+      - SHUTDOWN_TIMEOUT=30s
+      # 存储配置（使用本地文件系统持久化）
+      - STORAGE_DRIVER=fs
+      - FS_STORAGE_DIR=/app/data
+      - SESSION_TTL=720h        # 30天
+      - MAX_REQUESTS=1000       # 最多保存1000个请求
+        # 如果要用 Redis（可选）
+      - STORAGE_DRIVER=redis
+      - PUBSUB_DRIVER=redis
+      - REDIS_DSN=redis://Gaopuguang@2024%@redis.gpg123.vip:6379/1
+    # 可选：持久化数据（webhook-tester 支持 SQLite 存储）
+    volumes:
+      - /home/webhook:/app/data
