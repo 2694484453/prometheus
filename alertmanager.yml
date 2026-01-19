@@ -19,13 +19,12 @@ route:
       # 这里的 continue: true 意味着：
       # 发送给 webhook 后，继续匹配后续的路由（即不会停止）
       # 如果设为 false，则匹配到 webhook 后，就不会再发给 email 了
-      continue: true
+      continue: false
 receivers:
   - name: 'webhook'
     webhook_configs:
       - url: 'https://lazy-dragon-84.webhook.cool'
       - url: 'https://cloud-server.gpg123.vip/api/webhook/alert'
-      - url: 'http://cloud-server.nas.gpg123.vip/api/webhook/alert'
       # 发送恢复通知
         send_resolved: true
   - name: 'email'
